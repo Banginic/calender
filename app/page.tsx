@@ -1,12 +1,12 @@
-import React from 'react'
+import { currentUser } from "@clerk/nextjs/server"
+import { LandingPage } from "../components"
+import { redirect } from "next/navigation"
 
-function Home() {
-  return (
-    <div>
-      <h1 className='text-red-500'>Calendra app</h1>
+async function Home() {
+  const user = await currentUser()
 
-    </div>
-  )
+  if(!user) return <LandingPage />
+  return redirect('/events')
 }
 
 export default Home
