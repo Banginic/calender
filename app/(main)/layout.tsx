@@ -6,10 +6,9 @@ async function MainLayout({ children }: { children: React.ReactNode }) {
     const user = await currentUser()
   return (
     <section className="relative">
-        <PublicNavbar />
-        {/* {
+        {
             user ? <PrivateNavbar /> : <PublicNavbar />
-        } */}
+        }
       <main className="pt-36">{children}</main>
     </section>
   );
